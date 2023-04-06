@@ -9,11 +9,13 @@ import Foundation
 
 
 struct Ticket {
+    
+   static var shared = Ticket()
+    
     var passenger: Passenger?
-    var date = "00"
-    var time: Time?
+    var date2: String?
+    var time: String?
     var seat: [Int] = []
     var seatNumber: Int = 0
-
 }
 

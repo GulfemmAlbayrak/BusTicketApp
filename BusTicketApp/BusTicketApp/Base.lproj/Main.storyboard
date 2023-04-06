@@ -605,12 +605,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tt1-Xb-S11"/>
                     <connections>
-                        <outlet property="dateLabel" destination="Fqx-om-uGF" id="gRg-V6-7nn"/>
+                        <outlet property="dateLabel" destination="bhJ-ex-5b0" id="UEm-0k-ivx"/>
                         <outlet property="idLbl" destination="4oC-dt-faq" id="Y74-XD-pTL"/>
                         <outlet property="nameLbl" destination="TMp-H8-Waq" id="Ion-pO-O2t"/>
                         <outlet property="seatNumberLbl" destination="AjQ-a3-SRt" id="Thh-rJ-K0k"/>
                         <outlet property="surnameLbl" destination="Ycy-bj-hHd" id="eQ5-xP-tND"/>
-                        <outlet property="timeLabel" destination="Fqx-om-uGF" id="2g6-OJ-Y2s"/>
+                        <outlet property="timeLabel" destination="Fqx-om-uGF" id="CD5-TD-C5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJ8-SM-Gmb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -58,7 +58,8 @@ class HomepageVC: UIViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let selectedDate = dateFormatter.string(from: datePicker.date)
         dateTextField.text = selectedDate
-
+        Ticket.shared.date2 = selectedDate
+       
       
     }
     
@@ -67,12 +68,13 @@ class HomepageVC: UIViewController {
         dateFormatter.dateFormat = "hh:mm"
         let selectedTime = dateFormatter.string(from: timePicker.date)
         timeTextField.text = selectedTime
-        
+        Ticket.shared.time = selectedTime
        
         
     }
     
     @objc func touchDetectionMethod() {
+        
         view.endEditing(true)
     }
     
