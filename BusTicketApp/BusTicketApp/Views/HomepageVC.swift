@@ -58,7 +58,7 @@ class HomepageVC: UIViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let selectedDate = dateFormatter.string(from: datePicker.date)
         dateTextField.text = selectedDate
-        Ticket.shared.date2 = selectedDate
+        Ticket.shared.date = selectedDate
        
       
     }

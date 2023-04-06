@@ -16,7 +16,6 @@ class TicketVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var seatNumberLbl: UILabel!
     
-    var ticket = Ticket()
     var nameMessage: String?
     var surnameMessage: String?
     var idMessage: String?
@@ -28,7 +27,7 @@ class TicketVC: UIViewController {
         surnameLbl.text = surnameMessage!
         idLbl.text = idMessage!
         
-        dateLabel.text = Ticket.shared.date2
+        dateLabel.text = Ticket.shared.date
         timeLabel.text = Ticket.shared.time
         //seatNumberLbl.text = "\("Koltuk: \(ticket.seatNumber)")"
         
