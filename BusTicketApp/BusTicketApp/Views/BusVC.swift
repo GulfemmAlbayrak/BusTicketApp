@@ -32,7 +32,7 @@ class BusVC: UIViewController {
         collectionView.allowsMultipleSelection = true
         configure()
         
-        NotificationCenter.default.post(name: .sendDataNotification, object: nil, userInfo: ["mesaj": "aaa"])
+        
       
     }
 
@@ -41,9 +41,17 @@ class BusVC: UIViewController {
         //let userInfo = ["selectedSeatNumber": selectedSeatNumber]
         //let seatNumber = selectedSeats
         
+        
+        NotificationCenter.default.post(name: .sendSeatNumberNotification, object: nil, userInfo: ["seat": selectedSeats])
+        
         print("\(selectedSeats)")
+        
+        
         let seatPage = storyboard?.instantiateViewController(withIdentifier: "PassengerDetailVC") as! PassengerDetailVC
         navigationController?.pushViewController(seatPage, animated: false)
+        
+        
+        
     }
     
     private func configure() {
@@ -67,7 +75,7 @@ extension BusVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let busCell = collectionView.dequeueReusableCell(withReuseIdentifier: BusCVC.identifier, for: indexPath) as! BusCVC
-        busCell.configure(label: "\(indexPath.item + 1)")
+        busCell.update(label: "\(indexPath.item + 1)")
         return busCell
     }
     

@@ -14,8 +14,6 @@ class PassengerDetailVC: UIViewController {
     @IBOutlet weak var surnameText: UITextField!
     @IBOutlet weak var idText: UITextField!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -46,6 +44,7 @@ class PassengerDetailVC: UIViewController {
             sendVC.modalTransitionStyle = .flipHorizontal
             self.present(sendVC, animated: true, completion: nil)
         }
+        
         
     }
     

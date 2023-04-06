@@ -67,7 +67,6 @@ class OnboardingVC: UIViewController {
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .flipHorizontal
         present(controller, animated: true, completion: nil)
-
     }
   
 

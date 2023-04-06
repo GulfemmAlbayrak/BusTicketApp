@@ -12,15 +12,13 @@ class TicketVC: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var surnameLbl: UILabel!
     @IBOutlet weak var idLbl: UILabel!
-    @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var seatNumberLbl: UILabel!
     
     var nameMessage: String?
     var surnameMessage: String?
     var idMessage: String?
-    var date: String?
-    var time: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,43 +26,36 @@ class TicketVC: UIViewController {
         nameLbl.text = nameMessage!
         surnameLbl.text = surnameMessage!
         idLbl.text = idMessage!
-        //dateLbl.text = date
-        //timeLbl.text = time
-        //seatNumberLbl.text = selectedSeats
         
-        NotificationCenter.default.addObserver(self, selector: #selector(dateChanged(_:)), name: NSNotification.Name(rawValue: "dateChanged"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(timeChanged(_:)), name: NSNotification.Name(rawValue: "timeChanged"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.printSeatNumber(notification:)), name: .sendDataNotification, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector(sonucGoster(data:)), name: NSNotification.Name(rawValue: "sonucGosterID"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(dateChanged(notification:)), name: .sendTimeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(timeChanged(notification:)), name: .sendTimeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(printSeatNumber(data:)), name: .sendSeatNumberNotification, object: nil)
+
     }
     
-    
-    
-    
-    @objc func printSeatNumber(notification: NSNotification) {
-        let gelenMesaj = notification.userInfo?["key2"]
-        seatNumberLbl.text = "hgvhj"
-    }
-    
-    
-    @objc func dateChanged(_ notification: Notification) {
-        if let selectedDate = notification.object as? String {
-            date = selectedDate
-            dateLbl.text = selectedDate
+    @objc func dateChanged(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let a = userInfo["date"] as? String {
+                dateLabel.text = a
+            } else { dateLabel.text = "NaN"}
         }
     }
     
-    @objc func timeChanged(_ notification: Notification) {
-        if let selectedTime = notification.object as? String {
-            time = selectedTime
-            timeLbl.text = selectedTime
-            
+    @objc func timeChanged( notification: Notification) {
+        if let userInfo = notification.userInfo {
+            if let b = userInfo["time"] as? String {
+                timeLabel.text = b
+            } else { dateLabel.text = "NaN"}
         }
     }
     
-    
-    
+     @objc func printSeatNumber(data:Notification) {
+         if let userInfo = data.userInfo{
+             let seat = userInfo["seat"] as? String
+             self.seatNumberLbl.text = seat
+         } else { dateLabel.text = "NaN"}
+         
+     }
     
     @IBAction func goBackHomepage(_ sender: Any) {
         
@@ -74,6 +65,7 @@ class TicketVC: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
-    
+  
 }
+
 

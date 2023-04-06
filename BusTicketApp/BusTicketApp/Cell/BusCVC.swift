@@ -24,15 +24,7 @@ class BusCVC: UICollectionViewCell {
         seatNumber.font = UIFont.systemFont(ofSize: 12)
         seatNumber.textColor = .black
         seatNumber.translatesAutoresizingMaskIntoConstraints = false
-        //seatImage.image = UIImage(named: "seat")
-        //seatImage.translatesAutoresizingMaskIntoConstraints = false
-        //seatNumber.text = "45"
-        //seatNumber.translatesAutoresizingMaskIntoConstraints = false
         arrangeViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func arrangeViews() {
@@ -40,14 +32,6 @@ class BusCVC: UICollectionViewCell {
         contentView.addSubview(seatNumber)
         
         NSLayoutConstraint.activate([
-            /*
-            seatImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            seatImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            seatImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            seatImage.topAnchor.constraint(equalTo: self.topAnchor),
-            seatNumber.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            seatNumber.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -15)
-            */
             seatImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             seatImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             seatImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -58,11 +42,16 @@ class BusCVC: UICollectionViewCell {
         
     }
     
-    public func configure(label: String) {
+    public func update(label: String) {
         seatNumber.text = label
     }
     
     override func prepareForReuse() {
         seatNumber.text = nil
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }

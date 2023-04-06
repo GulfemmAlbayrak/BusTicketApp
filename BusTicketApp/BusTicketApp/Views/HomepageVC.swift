@@ -12,15 +12,16 @@ class HomepageVC: UIViewController {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var findTicketBtn: UIButton!
-    @IBOutlet weak var ticketNumber: UILabel!
+    @IBOutlet weak var numberOfPassengers: UILabel!
     
     var ticket = Ticket()
     
     var datePicker: UIDatePicker?
     var timePicker: UIDatePicker?
+
     
     override func viewDidLoad() {
-        
+      
      
         
         super.viewDidLoad()
@@ -41,7 +42,6 @@ class HomepageVC: UIViewController {
         }
         timeTextField.inputView = timePicker
         
-        
         datePicker?.addTarget(self, action: #selector(self.showDate(datePicker:)), for: .valueChanged)
         timePicker?.addTarget(self, action: #selector(self.showTime(timePicker:)), for: .valueChanged)
         
@@ -59,8 +59,7 @@ class HomepageVC: UIViewController {
         let selectedDate = dateFormatter.string(from: datePicker.date)
         dateTextField.text = selectedDate
 
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dateChanged"), object: selectedDate)
-        
+      
     }
     
     @objc func showTime(timePicker:UIDatePicker){
@@ -69,7 +68,7 @@ class HomepageVC: UIViewController {
         let selectedTime = dateFormatter.string(from: timePicker.date)
         timeTextField.text = selectedTime
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "timeChanged"), object: selectedTime)
+       
         
     }
     
@@ -79,28 +78,40 @@ class HomepageVC: UIViewController {
     
     //Ticket
     @IBAction func ticketStepper(_ sender: UIStepper) {
-        ticketNumber.text = String(Int(sender.value))
+        numberOfPassengers.text = String(Int(sender.value))
         ticket.seatNumber = Int(sender.value)
     }
     
         
     @IBAction func showTicketList(_ sender: Any) {
+        
+      
+        
        //Date and Time Alert
         if (dateTextField.text?.isEmpty ?? true) || (timeTextField.text?.isEmpty ?? true) {
-               let alert = UIAlertController(title: "Uyarı", message: "Lütfen bir tarih ve saat seçin.", preferredStyle: .alert)
+               let alert = UIAlertController(title: "Uyarı", message: "Lütfen tarih ve saat seçin.", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
                present(alert, animated: true, completion: nil)
                return
            }
         //Ticket Number Alert
         if(ticket.seatNumber <= 0 || ticket.seatNumber > 5 ){
-            let alert = UIAlertController(title: "Uyarı", message: "Lütfen koltuk sayısını 1-5 arasında seçiniz.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Uyarı", message: "Yolcu sayısı 1-5 arasında olabilir.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         } else {
             let seatPage = storyboard?.instantiateViewController(withIdentifier: "BusVC") as! BusVC
             seatPage.ticket = ticket
             navigationController?.pushViewController(seatPage, animated: true)
+        
+            let date = dateTextField.text!
+            let time = timeTextField.text!
+            NotificationCenter.default.post(name: .sendDateNotification, object: nil, userInfo: ["date" : date])
+            NotificationCenter.default.post(name: .sendTimeNotification , object: nil, userInfo: ["time" : time])
+            print("\(date)")
+            print("\(time)")
+            
         }
     }
 }
+

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Date {
-    var day: String = "01"
+    var date: String = "01"
     var month: String = "01"
     var year: String = "2021"
 }
