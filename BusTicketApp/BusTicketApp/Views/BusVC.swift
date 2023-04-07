@@ -13,7 +13,7 @@ class BusVC: UIViewController {
     
     var selectedSeats: [Int] = []
     var ticket = Ticket()
-    
+    /*
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -24,7 +24,7 @@ class BusVC: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         return collectionView
-    }()
+    }()*/
    
     override func viewDidLoad() {
         super.viewDidLoad()

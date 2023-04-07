@@ -14,15 +14,18 @@ class HomepageVC: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var findTicketBtn: UIButton!
     @IBOutlet weak var numberOfPassengers: UILabel!
+    @IBOutlet weak var reverseButton: UIButton!
     @IBOutlet weak var imageView: LottieAnimationView!
     
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var toLabel: UILabel!
     
     var ticket = Ticket()
     
     var datePicker: UIDatePicker?
     var timePicker: UIDatePicker?
 
-    
+    var reverseCustomButton = ReverseCustomButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         //Lottie
@@ -56,8 +59,23 @@ class HomepageVC: UIViewController {
         let touchDetection = UITapGestureRecognizer(target: self, action: #selector(self.touchDetectionMethod))
         view.addGestureRecognizer(touchDetection)
         
+        //Toolbar
+        let toolbar = UIToolbar()
+        toolbar.tintColor = UIColor.blue
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Tamam", style: .plain , target: self, action: #selector(HomepageVC.doneTouch))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([spaceButton, doneButton], animated: true)
+        
+        timeTextField.inputAccessoryView = toolbar
+        dateTextField.inputAccessoryView = toolbar
+        
         findTicketBtn.layer.cornerRadius = 10
         findTicketBtn.clipsToBounds = true
+        reverseButton.layer.cornerRadius = 10
+        reverseButton.clipsToBounds = true
 
     }
     @objc func showDate(datePicker:UIDatePicker){
@@ -80,6 +98,17 @@ class HomepageVC: UIViewController {
         view.endEditing(true)
     }
     
+   @objc func doneTouch(){
+       view.endEditing(true)
+    }
+    
+    @IBAction func reverseButton(_ sender: Any) {
+        
+        let tempText = fromLabel.text
+        fromLabel.text = toLabel.text
+        toLabel.text = tempText
+        
+    }
     //Ticket
     @IBAction func ticketStepper(_ sender: UIStepper) {
         numberOfPassengers.text = String(Int(sender.value))
@@ -104,6 +133,9 @@ class HomepageVC: UIViewController {
             let seatPage = storyboard?.instantiateViewController(withIdentifier: "BusVC") as! BusVC
             seatPage.ticket = ticket
             navigationController?.pushViewController(seatPage, animated: true)
+            print("\(fromLabel.text!)")
+            print("\(toLabel.text!)")
+            
             
         }
     }
