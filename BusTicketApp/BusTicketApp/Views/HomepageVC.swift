@@ -105,13 +105,6 @@ class HomepageVC: UIViewController {
             let seatPage = storyboard?.instantiateViewController(withIdentifier: "BusVC") as! BusVC
             seatPage.ticket = ticket
             navigationController?.pushViewController(seatPage, animated: true)
-        
-            let date = dateTextField.text!
-            let time = timeTextField.text!
-            NotificationCenter.default.post(name: .sendDateNotification, object: nil, userInfo: ["date" : date])
-            NotificationCenter.default.post(name: .sendTimeNotification , object: nil, userInfo: ["time" : time])
-            print("\(date)")
-            print("\(time)")
             
         }
     }

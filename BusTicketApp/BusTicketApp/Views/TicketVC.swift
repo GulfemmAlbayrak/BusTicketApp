@@ -29,6 +29,7 @@ class TicketVC: UIViewController {
         
         dateLabel.text = Ticket.shared.date
         timeLabel.text = Ticket.shared.time
+        seatNumberLbl.text = Ticket.shared.selectedSeat
         //seatNumberLbl.text = "\("Koltuk: \(ticket.seatNumber)")"
         
     }

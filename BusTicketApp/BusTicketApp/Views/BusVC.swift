@@ -37,15 +37,9 @@ class BusVC: UIViewController {
     }
 
     @IBAction func continueBtnClicked(_ sender: UIButton) {
-       // let selectedSeatNumber = selectedSeats
-        //let userInfo = ["selectedSeatNumber": selectedSeatNumber]
-        //let seatNumber = selectedSeats
-        
-        
-        NotificationCenter.default.post(name: .sendSeatNumberNotification, object: nil, userInfo: ["seat": selectedSeats])
-        
+        let seatNumberString = selectedSeats.map { String($0) }.joined(separator: ", ")
         print("\(selectedSeats)")
-        
+        Ticket.shared.selectedSeat = seatNumberString
         
         let seatPage = storyboard?.instantiateViewController(withIdentifier: "PassengerDetailVC") as! PassengerDetailVC
         navigationController?.pushViewController(seatPage, animated: false)
