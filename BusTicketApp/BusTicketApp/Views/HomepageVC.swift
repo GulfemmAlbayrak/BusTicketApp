@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class HomepageVC: UIViewController {
     
@@ -13,6 +14,8 @@ class HomepageVC: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var findTicketBtn: UIButton!
     @IBOutlet weak var numberOfPassengers: UILabel!
+    @IBOutlet weak var imageView: LottieAnimationView!
+    
     
     var ticket = Ticket()
     
@@ -21,11 +24,16 @@ class HomepageVC: UIViewController {
 
     
     override func viewDidLoad() {
-      
-     
-        
         super.viewDidLoad()
+        //Lottie
+        let imageView = LottieAnimationView(name: "roadmap")
+        imageView.frame = CGRect(x: 68, y: 75, width: 240, height: 211)
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        imageView.play()
+        imageView.loopMode = .loop
         
+        //DatePicker
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         if #available(iOS 16.2 , *){
@@ -33,7 +41,7 @@ class HomepageVC: UIViewController {
         }
         dateTextField.inputView = datePicker
         
-        
+        //TimePicker
         timePicker = UIDatePicker()
         timePicker?.datePickerMode = .time
         if #available(iOS 16.2 , *) {
@@ -52,15 +60,12 @@ class HomepageVC: UIViewController {
         findTicketBtn.clipsToBounds = true
 
     }
-    //DatePicker
     @objc func showDate(datePicker:UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let selectedDate = dateFormatter.string(from: datePicker.date)
         dateTextField.text = selectedDate
         Ticket.shared.date = selectedDate
-       
-      
     }
     
     @objc func showTime(timePicker:UIDatePicker){
@@ -69,12 +74,9 @@ class HomepageVC: UIViewController {
         let selectedTime = dateFormatter.string(from: timePicker.date)
         timeTextField.text = selectedTime
         Ticket.shared.time = selectedTime
-       
-        
     }
     
     @objc func touchDetectionMethod() {
-        
         view.endEditing(true)
     }
     
@@ -86,9 +88,6 @@ class HomepageVC: UIViewController {
     
         
     @IBAction func showTicketList(_ sender: Any) {
-        
-      
-        
        //Date and Time Alert
         if (dateTextField.text?.isEmpty ?? true) || (timeTextField.text?.isEmpty ?? true) {
                let alert = UIAlertController(title: "Uyarı", message: "Lütfen tarih ve saat seçin.", preferredStyle: .alert)

@@ -18,7 +18,7 @@ class BusVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 95, height: 95)
         collectionView.register(BusCVC.self, forCellWithReuseIdentifier: BusCVC.identifier)
         collectionView.backgroundColor = .systemBackground
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,20 +31,22 @@ class BusVC: UIViewController {
 
         collectionView.allowsMultipleSelection = true
         configure()
-        
-        
-      
-    }
-
+    
+        }
+  
     @IBAction func continueBtnClicked(_ sender: UIButton) {
+        //Allert
+        if collectionView.indexPathsForSelectedItems?.count ?? 0 < ticket.seatNumber {
+            let alert = UIAlertController(title: "Dikkat!", message: "Lütfen Koltuk Sayısı Kadar Seçim Yapınızz!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
         let seatNumberString = selectedSeats.map { String($0) }.joined(separator: ", ")
         print("\(selectedSeats)")
         Ticket.shared.selectedSeat = seatNumberString
         
         let seatPage = storyboard?.instantiateViewController(withIdentifier: "PassengerDetailVC") as! PassengerDetailVC
         navigationController?.pushViewController(seatPage, animated: false)
-        
-        
         
     }
     
@@ -57,7 +59,7 @@ class BusVC: UIViewController {
         NSLayoutConstraint.activate([
             collectionView.bottomAnchor.constraint(equalTo: ContinueBtn.topAnchor),
             collectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150)
         ])
     }
 }
@@ -78,8 +80,6 @@ extension BusVC: UICollectionViewDelegate, UICollectionViewDataSource {
         selectedSeats.append(indexPath.row + 1)
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
         cell?.backgroundColor = .systemGreen
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -92,6 +92,7 @@ extension BusVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        //Allert
         if collectionView.indexPathsForSelectedItems?.count ?? 0 == ticket.seatNumber {
             let alert = UIAlertController(title: "Dikkat!", message: "Lütfen Koltuk Sayısı Kadar Seçim Yapınızz!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))

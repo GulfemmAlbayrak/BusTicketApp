@@ -13,7 +13,6 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
-
     @IBOutlet weak var skipButton: UIButton!
     
     var slides: [OnboardingSlide] = []
@@ -28,7 +27,6 @@ class OnboardingVC: UIViewController {
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -26,6 +26,7 @@
 		D704BC0129DA58CF00B25031 /* BusCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0029DA58CF00B25031 /* BusCVC.swift */; };
 		D704BC0329DB103D00B25031 /* PassengerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0229DB103C00B25031 /* PassengerDetailVC.swift */; };
 		D704BC0A29DB9E6000B25031 /* TicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0929DB9E6000B25031 /* TicketVC.swift */; };
+		D73B17E429DF9625006DE3B7 /* roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B17E329DF9625006DE3B7 /* roadmap.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		D704BC0029DA58CF00B25031 /* BusCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCVC.swift; sourceTree = "<group>"; };
 		D704BC0229DB103C00B25031 /* PassengerDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDetailVC.swift; sourceTree = "<group>"; };
 		D704BC0929DB9E6000B25031 /* TicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketVC.swift; sourceTree = "<group>"; };
+		D73B17E329DF9625006DE3B7 /* roadmap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roadmap.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,6 @@
 				9A85F7683E3EEC588AEAFC9F /* Pods-BusTicketApp.debug.xcconfig */,
 				0B9FFD4D7160B9797593A8D9 /* Pods-BusTicketApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -113,6 +114,7 @@
 				D704BBC729D85B5100B25031 /* ViewController.swift */,
 				D704BBC929D85B5100B25031 /* Main.storyboard */,
 				D704BBCC29D85B5200B25031 /* Assets.xcassets */,
+				D73B17E329DF9625006DE3B7 /* roadmap.json */,
 				D704BBCE29D85B5200B25031 /* LaunchScreen.storyboard */,
 				D704BBD129D85B5200B25031 /* Info.plist */,
 			);
@@ -220,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73B17E429DF9625006DE3B7 /* roadmap.json in Resources */,
 				D704BBD029D85B5200B25031 /* LaunchScreen.storyboard in Resources */,
 				D704BBCD29D85B5200B25031 /* Assets.xcassets in Resources */,
 				D704BBCB29D85B5100B25031 /* Main.storyboard in Resources */,
