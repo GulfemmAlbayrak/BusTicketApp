@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Lottie
   @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -7,7 +7,11 @@
 
 import Foundation
 
+
+
 struct Passenger {
+   static var shared = Passenger()
+    
     var name: String = " " 
     var surname: String = " "
     var id: String = " "

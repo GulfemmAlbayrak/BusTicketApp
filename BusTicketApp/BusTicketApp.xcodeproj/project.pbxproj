@@ -29,6 +29,10 @@
 		D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180A29E0C280006DE3B7 /* roadmap.json */; };
 		D73B180D29E0E44F006DE3B7 /* ticket.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180C29E0E44F006DE3B7 /* ticket.json */; };
 		D73B180F29E0EC8B006DE3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */; };
+		D73B181129E10A38006DE3B7 /* creditCard.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B181029E10A38006DE3B7 /* creditCard.json */; };
+		D73B181329E10A65006DE3B7 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B181229E10A65006DE3B7 /* PayVC.swift */; };
+		D73B181A29E116DA006DE3B7 /* checkTick.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B181929E116DA006DE3B7 /* checkTick.json */; };
+		D73B181C29E11E2A006DE3B7 /* ApprovedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B181B29E11E2A006DE3B7 /* ApprovedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		D73B180A29E0C280006DE3B7 /* roadmap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roadmap.json; sourceTree = "<group>"; };
 		D73B180C29E0E44F006DE3B7 /* ticket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ticket.json; sourceTree = "<group>"; };
 		D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D73B181029E10A38006DE3B7 /* creditCard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = creditCard.json; sourceTree = "<group>"; };
+		D73B181229E10A65006DE3B7 /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
+		D73B181929E116DA006DE3B7 /* checkTick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkTick.json; sourceTree = "<group>"; };
+		D73B181B29E11E2A006DE3B7 /* ApprovedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,8 @@
 				D704BBEA29D87F7F00B25031 /* HomepageVC.swift */,
 				D704BBFE29DA587900B25031 /* BusVC.swift */,
 				D704BC0229DB103C00B25031 /* PassengerDetailVC.swift */,
+				D73B181229E10A65006DE3B7 /* PayVC.swift */,
+				D73B181B29E11E2A006DE3B7 /* ApprovedVC.swift */,
 				D704BC0929DB9E6000B25031 /* TicketVC.swift */,
 			);
 			path = Views;
@@ -172,6 +182,8 @@
 				D73B180A29E0C280006DE3B7 /* roadmap.json */,
 				D73B180C29E0E44F006DE3B7 /* ticket.json */,
 				D73B180529E0BFB6006DE3B7 /* vacationTrip.json */,
+				D73B181929E116DA006DE3B7 /* checkTick.json */,
+				D73B181029E10A38006DE3B7 /* creditCard.json */,
 			);
 			path = "Assests + Lottie";
 			sourceTree = "<group>";
@@ -238,6 +250,8 @@
 			files = (
 				D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */,
 				D704BBD029D85B5200B25031 /* LaunchScreen.storyboard in Resources */,
+				D73B181A29E116DA006DE3B7 /* checkTick.json in Resources */,
+				D73B181129E10A38006DE3B7 /* creditCard.json in Resources */,
 				D73B180D29E0E44F006DE3B7 /* ticket.json in Resources */,
 				D704BBCB29D85B5100B25031 /* Main.storyboard in Resources */,
 				D73B180F29E0EC8B006DE3B7 /* Assets.xcassets in Resources */,
@@ -303,9 +317,11 @@
 				D704BBE729D87EE400B25031 /* OnboardingCVCell.swift in Sources */,
 				D704BBE529D87ECA00B25031 /* OnboardingVC.swift in Sources */,
 				D704BBC429D85B5100B25031 /* AppDelegate.swift in Sources */,
+				D73B181329E10A65006DE3B7 /* PayVC.swift in Sources */,
 				D704BBDF29D85BDE00B25031 /* Passenger.swift in Sources */,
 				D704BBFB29DA578700B25031 /* Date.swift in Sources */,
 				D704BC0329DB103D00B25031 /* PassengerDetailVC.swift in Sources */,
+				D73B181C29E11E2A006DE3B7 /* ApprovedVC.swift in Sources */,
 				D704BBFF29DA587900B25031 /* BusVC.swift in Sources */,
 				D704BBC629D85B5100B25031 /* SceneDelegate.swift in Sources */,
 				D704BBDB29D85BC900B25031 /* Ticket.swift in Sources */,

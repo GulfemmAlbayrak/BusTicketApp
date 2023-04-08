@@ -28,10 +28,9 @@ class TicketVC: UIViewController {
         
         fromLbl.text = Ticket.shared.from
         toLbl.text = Ticket.shared.to
-        nameLbl.text = nameMessage!
-        surnameLbl.text = surnameMessage!
-        idLbl.text = idMessage!
-        
+        nameLbl.text = Passenger.shared.name
+        surnameLbl.text = Passenger.shared.surname
+        idLbl.text = Passenger.shared.id
         dateLabel.text = Ticket.shared.date
         timeLabel.text = Ticket.shared.time
         seatNumberLbl.text = Ticket.shared.selectedSeat
@@ -44,7 +43,7 @@ class TicketVC: UIViewController {
         let controller = storyboard?.instantiateViewController(withIdentifier: "HomepageNC") as! UINavigationController
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .flipHorizontal
-        present(controller, animated: true, completion: nil)
+        present(controller, animated: false, completion: nil)
     }
     
   
