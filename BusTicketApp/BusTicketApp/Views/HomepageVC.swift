@@ -24,8 +24,7 @@ class HomepageVC: UIViewController {
     
     var datePicker: UIDatePicker?
     var timePicker: UIDatePicker?
-
-    var reverseCustomButton = ReverseCustomButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Lottie

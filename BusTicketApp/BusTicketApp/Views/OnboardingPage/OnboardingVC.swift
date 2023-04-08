@@ -32,9 +32,9 @@ class OnboardingVC: UIViewController {
         super.viewDidLoad()
         
         slides = [
-            OnboardingSlide(title: "Online Payment", description: "Online payment directly from your mobile phone", image: UIImage(named: "pay")!),
-            OnboardingSlide(title: "Journey", description: "-----", image: UIImage(named: "journey")!),
-            OnboardingSlide(title: "Enjoy", description: "Time to enjoy your vacation", image: UIImage(named: "enjoy")!)
+            OnboardingSlide(title: "Hızlı ve Güvenli Ödeme", description: "Kredi kartı ile Kolayca Ödeme Yapın ve Yolculuğunuzu Anında Onaylayın", image: UIImage(named: "pay")!),
+            OnboardingSlide(title: "Konforlu ve Güvenli Yolculuk", description: "İzmir ve Çeşme Arasındaki En İyi Seçim. Rahat ve GÜvenli Yolculuk Yapın", image: UIImage(named: "journey")!),
+            OnboardingSlide(title: "Huzur Dolu Bir Tatil", description: "Mükemmel Tatilinizin Tadını Çıkartın ", image: UIImage(named: "enjoy")!)
         ]
         
         pageControl.numberOfPages = slides.count

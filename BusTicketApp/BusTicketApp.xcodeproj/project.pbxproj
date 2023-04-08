@@ -12,7 +12,6 @@
 		D704BBC629D85B5100B25031 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BBC529D85B5100B25031 /* SceneDelegate.swift */; };
 		D704BBC829D85B5100B25031 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BBC729D85B5100B25031 /* ViewController.swift */; };
 		D704BBCB29D85B5100B25031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D704BBC929D85B5100B25031 /* Main.storyboard */; };
-		D704BBCD29D85B5200B25031 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D704BBCC29D85B5200B25031 /* Assets.xcassets */; };
 		D704BBD029D85B5200B25031 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D704BBCE29D85B5200B25031 /* LaunchScreen.storyboard */; };
 		D704BBDB29D85BC900B25031 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BBDA29D85BC900B25031 /* Ticket.swift */; };
 		D704BBDF29D85BDE00B25031 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BBDE29D85BDE00B25031 /* Passenger.swift */; };
@@ -29,6 +28,7 @@
 		D73B180629E0BFB6006DE3B7 /* vacationTrip.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180529E0BFB6006DE3B7 /* vacationTrip.json */; };
 		D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180A29E0C280006DE3B7 /* roadmap.json */; };
 		D73B180D29E0E44F006DE3B7 /* ticket.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180C29E0E44F006DE3B7 /* ticket.json */; };
+		D73B180F29E0EC8B006DE3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,6 @@
 		D704BBC529D85B5100B25031 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D704BBC729D85B5100B25031 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D704BBCA29D85B5100B25031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D704BBCC29D85B5200B25031 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D704BBCF29D85B5200B25031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D704BBD129D85B5200B25031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D704BBDA29D85BC900B25031 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		D73B180529E0BFB6006DE3B7 /* vacationTrip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vacationTrip.json; sourceTree = "<group>"; };
 		D73B180A29E0C280006DE3B7 /* roadmap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roadmap.json; sourceTree = "<group>"; };
 		D73B180C29E0E44F006DE3B7 /* ticket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ticket.json; sourceTree = "<group>"; };
+		D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 		D73B180729E0BFBC006DE3B7 /* Assests + Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				D704BBCC29D85B5200B25031 /* Assets.xcassets */,
+				D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */,
 				D73B180A29E0C280006DE3B7 /* roadmap.json */,
 				D73B180C29E0E44F006DE3B7 /* ticket.json */,
 				D73B180529E0BFB6006DE3B7 /* vacationTrip.json */,
@@ -238,9 +238,9 @@
 			files = (
 				D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */,
 				D704BBD029D85B5200B25031 /* LaunchScreen.storyboard in Resources */,
-				D704BBCD29D85B5200B25031 /* Assets.xcassets in Resources */,
 				D73B180D29E0E44F006DE3B7 /* ticket.json in Resources */,
 				D704BBCB29D85B5100B25031 /* Main.storyboard in Resources */,
+				D73B180F29E0EC8B006DE3B7 /* Assets.xcassets in Resources */,
 				D73B180629E0BFB6006DE3B7 /* vacationTrip.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
