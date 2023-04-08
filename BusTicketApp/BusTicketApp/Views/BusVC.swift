@@ -106,6 +106,8 @@ extension BusVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let seatNumberString = selectedSeats.map { String($0) }.joined(separator: ", ")
     selectedSeatsLabel.text = seatNumberString
+        priceLabel.text = String(selectedSeats.count * 100 ) + "TL"
+        Ticket.shared.price = selectedSeats.count*100
        
     }
   
