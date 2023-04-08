@@ -27,8 +27,8 @@
 		D704BC0329DB103D00B25031 /* PassengerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0229DB103C00B25031 /* PassengerDetailVC.swift */; };
 		D704BC0A29DB9E6000B25031 /* TicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0929DB9E6000B25031 /* TicketVC.swift */; };
 		D73B180629E0BFB6006DE3B7 /* vacationTrip.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180529E0BFB6006DE3B7 /* vacationTrip.json */; };
-		D73B180929E0C0C3006DE3B7 /* ReverseCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B180829E0C0C3006DE3B7 /* ReverseCustomButton.swift */; };
 		D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180A29E0C280006DE3B7 /* roadmap.json */; };
+		D73B180D29E0E44F006DE3B7 /* ticket.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180C29E0E44F006DE3B7 /* ticket.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +56,8 @@
 		D704BC0229DB103C00B25031 /* PassengerDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDetailVC.swift; sourceTree = "<group>"; };
 		D704BC0929DB9E6000B25031 /* TicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketVC.swift; sourceTree = "<group>"; };
 		D73B180529E0BFB6006DE3B7 /* vacationTrip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vacationTrip.json; sourceTree = "<group>"; };
-		D73B180829E0C0C3006DE3B7 /* ReverseCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseCustomButton.swift; sourceTree = "<group>"; };
 		D73B180A29E0C280006DE3B7 /* roadmap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roadmap.json; sourceTree = "<group>"; };
+		D73B180C29E0E44F006DE3B7 /* ticket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ticket.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +113,13 @@
 				D704BBE229D87E8B00B25031 /* Views */,
 				D704BC0429DB158C00B25031 /* Cell */,
 				D704BBD729D85B7800B25031 /* Model */,
-				D73B180729E0BFBC006DE3B7 /* Lottie */,
+				D73B180729E0BFBC006DE3B7 /* Assests + Lottie */,
 				D704BBC329D85B5100B25031 /* AppDelegate.swift */,
 				D704BBC529D85B5100B25031 /* SceneDelegate.swift */,
 				D704BBC729D85B5100B25031 /* ViewController.swift */,
 				D704BBC929D85B5100B25031 /* Main.storyboard */,
-				D704BBCC29D85B5200B25031 /* Assets.xcassets */,
 				D704BBCE29D85B5200B25031 /* LaunchScreen.storyboard */,
 				D704BBD129D85B5200B25031 /* Info.plist */,
-				D73B180829E0C0C3006DE3B7 /* ReverseCustomButton.swift */,
 			);
 			path = BusTicketApp;
 			sourceTree = "<group>";
@@ -167,13 +165,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		D73B180729E0BFBC006DE3B7 /* Lottie */ = {
+		D73B180729E0BFBC006DE3B7 /* Assests + Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				D704BBCC29D85B5200B25031 /* Assets.xcassets */,
 				D73B180A29E0C280006DE3B7 /* roadmap.json */,
+				D73B180C29E0E44F006DE3B7 /* ticket.json */,
 				D73B180529E0BFB6006DE3B7 /* vacationTrip.json */,
 			);
-			path = Lottie;
+			path = "Assests + Lottie";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +239,7 @@
 				D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */,
 				D704BBD029D85B5200B25031 /* LaunchScreen.storyboard in Resources */,
 				D704BBCD29D85B5200B25031 /* Assets.xcassets in Resources */,
+				D73B180D29E0E44F006DE3B7 /* ticket.json in Resources */,
 				D704BBCB29D85B5100B25031 /* Main.storyboard in Resources */,
 				D73B180629E0BFB6006DE3B7 /* vacationTrip.json in Resources */,
 			);
@@ -300,7 +301,6 @@
 				D704BBE929D87F3D00B25031 /* OnboardingSlide.swift in Sources */,
 				D704BBC829D85B5100B25031 /* ViewController.swift in Sources */,
 				D704BBE729D87EE400B25031 /* OnboardingCVCell.swift in Sources */,
-				D73B180929E0C0C3006DE3B7 /* ReverseCustomButton.swift in Sources */,
 				D704BBE529D87ECA00B25031 /* OnboardingVC.swift in Sources */,
 				D704BBC429D85B5100B25031 /* AppDelegate.swift in Sources */,
 				D704BBDF29D85BDE00B25031 /* Passenger.swift in Sources */,

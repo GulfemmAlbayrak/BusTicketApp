@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import Lottie
 
 class PassengerDetailVC: UIViewController {
 
-  
+    @IBOutlet weak var imageView: LottieAnimationView!
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var surnameText: UITextField!
     @IBOutlet weak var idText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Lottie
+        let imageView = LottieAnimationView(name: "ticket")
+        imageView.frame = CGRect(x: 68, y: 75, width: 240, height: 211)
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        imageView.play()
+        imageView.loopMode = .loop
     }
     
     @IBAction func printTicket(_ sender: Any) {

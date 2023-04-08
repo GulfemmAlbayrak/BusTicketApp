@@ -1,10 +1,3 @@
-//
-//  BusCVC.swift
-//  BusTicketApp
-//
-//  Created by Gülfem Albayrak on 3.04.2023.
-//
-
 
 import UIKit
 

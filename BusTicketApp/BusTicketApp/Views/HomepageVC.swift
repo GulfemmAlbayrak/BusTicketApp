@@ -133,6 +133,10 @@ class HomepageVC: UIViewController {
             let seatPage = storyboard?.instantiateViewController(withIdentifier: "BusVC") as! BusVC
             seatPage.ticket = ticket
             navigationController?.pushViewController(seatPage, animated: true)
+            
+            Ticket.shared.from = fromLabel.text
+            Ticket.shared.to = toLabel.text
+            
             print("\(fromLabel.text!)")
             print("\(toLabel.text!)")
             

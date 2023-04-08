@@ -9,12 +9,15 @@ import UIKit
 
 class TicketVC: UIViewController {
     
+    @IBOutlet weak var fromLbl: UILabel!
+    @IBOutlet weak var toLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var surnameLbl: UILabel!
     @IBOutlet weak var idLbl: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var seatNumberLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
     
     var nameMessage: String?
     var surnameMessage: String?
@@ -23,6 +26,8 @@ class TicketVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fromLbl.text = Ticket.shared.from
+        toLbl.text = Ticket.shared.to
         nameLbl.text = nameMessage!
         surnameLbl.text = surnameMessage!
         idLbl.text = idMessage!
@@ -30,6 +35,7 @@ class TicketVC: UIViewController {
         dateLabel.text = Ticket.shared.date
         timeLabel.text = Ticket.shared.time
         seatNumberLbl.text = Ticket.shared.selectedSeat
+        priceLbl.text = String(Ticket.shared.price) + "TL"
         //seatNumberLbl.text = "\("Koltuk: \(ticket.seatNumber)")"
         
     }

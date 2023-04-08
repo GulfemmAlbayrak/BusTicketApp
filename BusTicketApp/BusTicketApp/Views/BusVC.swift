@@ -9,29 +9,31 @@ import UIKit
 
 class BusVC: UIViewController {
 
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var selectedSeatsLabel: UILabel!
     @IBOutlet weak var ContinueBtn: UIButton!
-    
+
     var selectedSeats: [Int] = []
     var ticket = Ticket()
-    /*
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.itemSize = CGSize(width: 95, height: 95)
+        layout.itemSize = CGSize(width: 100, height: 100)
         collectionView.register(BusCVC.self, forCellWithReuseIdentifier: BusCVC.identifier)
         collectionView.backgroundColor = .systemBackground
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         return collectionView
-    }()*/
+    }()
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         collectionView.allowsMultipleSelection = true
         configure()
-    
+        selectedSeatsLabel.text = ""
+        priceLabel.text = ""
         }
   
     @IBAction func continueBtnClicked(_ sender: UIButton) {
@@ -44,7 +46,7 @@ class BusVC: UIViewController {
         let seatNumberString = selectedSeats.map { String($0) }.joined(separator: ", ")
         print("\(selectedSeats)")
         Ticket.shared.selectedSeat = seatNumberString
-        
+
         let seatPage = storyboard?.instantiateViewController(withIdentifier: "PassengerDetailVC") as! PassengerDetailVC
         navigationController?.pushViewController(seatPage, animated: false)
         
@@ -57,9 +59,9 @@ class BusVC: UIViewController {
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            collectionView.bottomAnchor.constraint(equalTo: ContinueBtn.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: ContinueBtn.topAnchor, constant: -200),
             collectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150)
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
         ])
     }
 }
@@ -72,24 +74,41 @@ extension BusVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let busCell = collectionView.dequeueReusableCell(withReuseIdentifier: BusCVC.identifier, for: indexPath) as! BusCVC
         busCell.update(label: "\(indexPath.item + 1)")
+        
+        // Hücre seçiliyse, arka plan rengini yeşil olarak ayarla
+        if selectedSeats.contains(indexPath.row + 1) {
+            busCell.backgroundColor = .systemGreen
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+        } else {
+            busCell.backgroundColor = .clear
+            collectionView.deselectItem(at: indexPath, animated: false)
+        }
         return busCell
-    }
+        }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
         selectedSeats.append(indexPath.row + 1)
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-        cell?.backgroundColor = .systemGreen
-    }
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell?.backgroundColor = .systemGreen
+        
+            let seatNumberString = selectedSeats.map { String($0) }.joined(separator: ", ")
+        selectedSeatsLabel.text = seatNumberString
+        priceLabel.text = String(selectedSeats.count * 100 ) + "TL"
+        Ticket.shared.price = selectedSeats.count*100
+        }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let index = selectedSeats.firstIndex(of: indexPath.row + 1) {
-            selectedSeats.remove(at: index)
-        }
-        let cell = collectionView.cellForItem(at: indexPath)
-        collectionView.deselectItem(at: indexPath, animated: true)
-        cell?.backgroundColor = .clear
+                selectedSeats.remove(at: index)
+            }
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell?.backgroundColor = .clear
+        
+        let seatNumberString = selectedSeats.map { String($0) }.joined(separator: ", ")
+    selectedSeatsLabel.text = seatNumberString
+       
     }
+  
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         //Allert

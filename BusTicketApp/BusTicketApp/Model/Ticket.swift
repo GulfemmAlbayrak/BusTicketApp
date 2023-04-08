@@ -20,5 +20,6 @@ struct Ticket {
     var seat: [Int] = []
     var seatNumber: Int = 0
     var selectedSeat: String?
+    var price: Int = 0
 }
 
