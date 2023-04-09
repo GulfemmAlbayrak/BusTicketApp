@@ -17,6 +17,7 @@ class HomepageVC: UIViewController {
     @IBOutlet weak var reverseButton: UIButton!
     @IBOutlet weak var imageView: LottieAnimationView!
     
+    
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var toLabel: UILabel!
     
