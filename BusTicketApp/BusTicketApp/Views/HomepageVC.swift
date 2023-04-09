@@ -27,6 +27,7 @@ class HomepageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Lottie
         let imageView = LottieAnimationView(name: "roadmap")
         imageView.frame = CGRect(x: 68, y: 75, width: 240, height: 211)
@@ -60,12 +61,9 @@ class HomepageVC: UIViewController {
         
         //Toolbar
         let toolbar = UIToolbar()
-        toolbar.tintColor = UIColor.blue
         toolbar.sizeToFit()
-        
         let doneButton = UIBarButtonItem(title: "Tamam", style: .plain , target: self, action: #selector(HomepageVC.doneTouch))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
         toolbar.setItems([spaceButton, doneButton], animated: true)
         
         timeTextField.inputAccessoryView = toolbar
@@ -117,8 +115,14 @@ class HomepageVC: UIViewController {
         
     @IBAction func showTicketList(_ sender: Any) {
        //Date and Time Alert
-        if (dateTextField.text?.isEmpty ?? true) || (timeTextField.text?.isEmpty ?? true) {
-               let alert = UIAlertController(title: "Uyarı", message: "Lütfen tarih ve saat seçin.", preferredStyle: .alert)
+        if dateTextField.text == ""{
+               let alert = UIAlertController(title: "Uyarı", message: "Lütden tarih seçin.", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+               present(alert, animated: true, completion: nil)
+               return
+           }
+        if timeTextField.text == ""{
+               let alert = UIAlertController(title: "Uyarı", message: "Lütden tarih seçin.", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
                present(alert, animated: true, completion: nil)
                return

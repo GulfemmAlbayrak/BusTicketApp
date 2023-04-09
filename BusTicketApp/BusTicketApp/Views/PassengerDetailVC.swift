@@ -27,21 +27,33 @@ class PassengerDetailVC: UIViewController {
     }
     
     @IBAction func printTicket(_ sender: Any) {
-        
-        if (nameText.text?.isEmpty ?? true) || (surnameText.text?.isEmpty ?? true) || (idText.text?.isEmpty ?? true) {
-               let alert = UIAlertController(title: "Uyarı", message: "Lütfen yukarıdaki alanları boş bırakmayınız!", preferredStyle: .alert)
-               alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
-               present(alert, animated: true, completion: nil)
-               return
-        } else {
+        //Name Alert
+        if nameText.text == ""{
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen adınızı giriniz!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        //Surname Alert
+        if surnameText.text == ""{
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen soyadınızı giriniz!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        //id Alert
+        if idText.text == ""{
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen id giriniz!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        else {
             
              let storyboard = UIStoryboard(name: "Main", bundle: nil)
              let sendVC = storyboard.instantiateViewController(withIdentifier: "PayVC") as! PayVC
              
-//            nameText.text = passengerName
-//            surnameText.text = passengerSurname
-//            idText.text = passengerID
-            
+
             Passenger.shared.name = nameText.text!
             Passenger.shared.surname = surnameText.text!
             Passenger.shared.id = idText.text!

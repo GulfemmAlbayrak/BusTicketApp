@@ -7,7 +7,7 @@
 
 import UIKit
 import Lottie
-class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var creditCardimageView: LottieAnimationView!
     @IBOutlet weak var nameLabel: UITextField!
@@ -32,33 +32,33 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
         imageView.play()
         imageView.loopMode = .loop
         
+        cardNoLabel.delegate = self
+        
         monthPickerView.delegate = self
         monthPickerView.dataSource = self
         
         yearPickerView.delegate = self
         yearPickerView.dataSource = self
         
-        // Set the input view for the text fields to the picker views
         monthTextField.inputView = monthPickerView
         yearTextField.inputView = yearPickerView
         
-        // Create a toolbar with a "Done" button to dismiss the picker views
+        //ToolBar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissPickerViews))
-        toolbar.setItems([doneButton], animated: false)
-        toolbar.isUserInteractionEnabled = true
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([spaceButton, doneButton], animated: false)
+        
         monthTextField.inputAccessoryView = toolbar
         yearTextField.inputAccessoryView = toolbar
-
-
     }
+    
     @objc func dismissPickerViews() {
            view.endEditing(true)
        }
     
-    // MARK: - UIPickerViewDataSource
-       
+//MARK: - UIPickerView
        func numberOfComponents(in pickerView: UIPickerView) -> Int {
            return 1
        }
@@ -70,9 +70,6 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
                return years.count
            }
        }
-       
-       // MARK: - UIPickerViewDelegate
-       
        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
            if pickerView == monthPickerView {
                return String(months[row])
@@ -80,7 +77,6 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
                return String(years[row])
            }
        }
-       
        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
            if pickerView == monthPickerView {
                monthTextField.text = String(months[row])
@@ -88,8 +84,55 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
                yearTextField.text = String(years[row])
            }
        }
+//Alert for card no
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == cardNoLabel {
+            let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            if newText.count > 16 {
+                let alert = UIAlertController(title: "Uyarı", message: "Kart numarası 16 haneden fazla olamaz.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+                return false
+            }
+        }
+            return true
+        }
     
-  
-    
-   }
+    @IBAction func buttonPressed(_ sender: Any) {
+        //Name Alert
+        if nameLabel.text == "" {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen adınızı giriniz!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        //Card No Alert
+        guard let cardNumber = cardNoLabel.text, cardNumber.count == 16 else {
+            let alert = UIAlertController(title: "Uyarı", message: "Kart numarası 16 haneli olmalıdır", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        //Expiration Date Alert
+        if monthTextField.text == "" {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen ay seçin!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        if yearTextField.text == "" {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen yıl seçin!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        // CVC Alert
+        if cvcLabel.text == "" {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen CVC kodunu girin!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+    }
+}
 

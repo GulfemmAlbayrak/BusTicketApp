@@ -33,6 +33,7 @@
 		D73B181329E10A65006DE3B7 /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B181229E10A65006DE3B7 /* PayVC.swift */; };
 		D73B181A29E116DA006DE3B7 /* checkTick.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B181929E116DA006DE3B7 /* checkTick.json */; };
 		D73B181C29E11E2A006DE3B7 /* ApprovedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B181B29E11E2A006DE3B7 /* ApprovedVC.swift */; };
+		D73B181E29E32253006DE3B7 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B181D29E32253006DE3B7 /* CreditCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		D73B181229E10A65006DE3B7 /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		D73B181929E116DA006DE3B7 /* checkTick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkTick.json; sourceTree = "<group>"; };
 		D73B181B29E11E2A006DE3B7 /* ApprovedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovedVC.swift; sourceTree = "<group>"; };
+		D73B181D29E32253006DE3B7 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				D704BBDE29D85BDE00B25031 /* Passenger.swift */,
 				D704BBFA29DA578700B25031 /* Date.swift */,
 				D704BBFC29DA57BF00B25031 /* Time.swift */,
+				D73B181D29E32253006DE3B7 /* CreditCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				D73B181329E10A65006DE3B7 /* PayVC.swift in Sources */,
 				D704BBDF29D85BDE00B25031 /* Passenger.swift in Sources */,
 				D704BBFB29DA578700B25031 /* Date.swift in Sources */,
+				D73B181E29E32253006DE3B7 /* CreditCard.swift in Sources */,
 				D704BC0329DB103D00B25031 /* PassengerDetailVC.swift in Sources */,
 				D73B181C29E11E2A006DE3B7 /* ApprovedVC.swift in Sources */,
 				D704BBFF29DA587900B25031 /* BusVC.swift in Sources */,
