@@ -25,8 +25,8 @@
 		D704BC0129DA58CF00B25031 /* BusCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0029DA58CF00B25031 /* BusCVC.swift */; };
 		D704BC0329DB103D00B25031 /* PassengerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0229DB103C00B25031 /* PassengerDetailVC.swift */; };
 		D704BC0A29DB9E6000B25031 /* TicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704BC0929DB9E6000B25031 /* TicketVC.swift */; };
+		D736BC9D29E3495B005EB3B4 /* roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = D736BC9C29E3495B005EB3B4 /* roadmap.json */; };
 		D73B180629E0BFB6006DE3B7 /* vacationTrip.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180529E0BFB6006DE3B7 /* vacationTrip.json */; };
-		D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180A29E0C280006DE3B7 /* roadmap.json */; };
 		D73B180D29E0E44F006DE3B7 /* ticket.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B180C29E0E44F006DE3B7 /* ticket.json */; };
 		D73B180F29E0EC8B006DE3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */; };
 		D73B181129E10A38006DE3B7 /* creditCard.json in Resources */ = {isa = PBXBuildFile; fileRef = D73B181029E10A38006DE3B7 /* creditCard.json */; };
@@ -59,8 +59,8 @@
 		D704BC0029DA58CF00B25031 /* BusCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCVC.swift; sourceTree = "<group>"; };
 		D704BC0229DB103C00B25031 /* PassengerDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerDetailVC.swift; sourceTree = "<group>"; };
 		D704BC0929DB9E6000B25031 /* TicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketVC.swift; sourceTree = "<group>"; };
+		D736BC9C29E3495B005EB3B4 /* roadmap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roadmap.json; sourceTree = "<group>"; };
 		D73B180529E0BFB6006DE3B7 /* vacationTrip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vacationTrip.json; sourceTree = "<group>"; };
-		D73B180A29E0C280006DE3B7 /* roadmap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roadmap.json; sourceTree = "<group>"; };
 		D73B180C29E0E44F006DE3B7 /* ticket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ticket.json; sourceTree = "<group>"; };
 		D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D73B181029E10A38006DE3B7 /* creditCard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = creditCard.json; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				D73B180E29E0EC8B006DE3B7 /* Assets.xcassets */,
-				D73B180A29E0C280006DE3B7 /* roadmap.json */,
+				D736BC9C29E3495B005EB3B4 /* roadmap.json */,
 				D73B180C29E0E44F006DE3B7 /* ticket.json */,
 				D73B180529E0BFB6006DE3B7 /* vacationTrip.json */,
 				D73B181929E116DA006DE3B7 /* checkTick.json */,
@@ -251,7 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D73B180B29E0C280006DE3B7 /* roadmap.json in Resources */,
+				D736BC9D29E3495B005EB3B4 /* roadmap.json in Resources */,
 				D704BBD029D85B5200B25031 /* LaunchScreen.storyboard in Resources */,
 				D73B181A29E116DA006DE3B7 /* checkTick.json in Resources */,
 				D73B181129E10A38006DE3B7 /* creditCard.json in Resources */,

@@ -52,17 +52,14 @@ class PassengerDetailVC: UIViewController {
             
              let storyboard = UIStoryboard(name: "Main", bundle: nil)
              let sendVC = storyboard.instantiateViewController(withIdentifier: "PayVC") as! PayVC
-             
-
-            Passenger.shared.name = nameText.text!
-            Passenger.shared.surname = surnameText.text!
-            Passenger.shared.id = idText.text!
-            
-             
-            
-            sendVC.modalPresentationStyle = .fullScreen
-            sendVC.modalTransitionStyle = .coverVertical
-            self.present(sendVC, animated: false, completion: nil)
+    
+             Passenger.shared.name = nameText.text!
+             Passenger.shared.surname = surnameText.text!
+             Passenger.shared.id = idText.text!
+          
+             sendVC.modalPresentationStyle = .fullScreen
+             sendVC.modalTransitionStyle = .coverVertical
+             self.present(sendVC, animated: false, completion: nil)
         }
         
         
