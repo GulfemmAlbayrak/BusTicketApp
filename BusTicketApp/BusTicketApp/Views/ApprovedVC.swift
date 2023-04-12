@@ -25,10 +25,10 @@ class ApprovedVC: UIViewController {
     
     @IBAction func printTicketBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let sendVC = storyboard.instantiateViewController(withIdentifier: "TicketVC") as! TicketVC
+        let ticketVC = storyboard.instantiateViewController(withIdentifier: "TicketVC") as! TicketVC
        
-       sendVC.modalPresentationStyle = .fullScreen
-       sendVC.modalTransitionStyle = .flipHorizontal
-       self.present(sendVC, animated: true, completion: nil)
+       ticketVC.modalPresentationStyle = .fullScreen
+       ticketVC.modalTransitionStyle = .flipHorizontal
+       self.present(ticketVC, animated: true, completion: nil)
     }
 }

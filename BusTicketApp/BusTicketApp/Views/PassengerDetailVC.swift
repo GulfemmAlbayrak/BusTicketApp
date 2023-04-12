@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class PassengerDetailVC: UIViewController {
+class PassengerDetailVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var imageView: LottieAnimationView!
     @IBOutlet weak var nameText: UITextField!
@@ -24,8 +24,22 @@ class PassengerDetailVC: UIViewController {
         view.addSubview(imageView)
         imageView.play()
         imageView.loopMode = .loop
+        
+        idText.delegate = self
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == idText {
+            let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            if newText.count > 11 {
+                let alert = UIAlertController(title: "Uyarı", message: "TCKN 11 haneden fazla olamaz.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+                return false
+            }
+        }
+            return true
+        }
     @IBAction func printTicket(_ sender: Any) {
         //Name Alert
         if nameText.text == ""{
@@ -42,29 +56,23 @@ class PassengerDetailVC: UIViewController {
             return
         }
         //id Alert
-        if idText.text == ""{
-            let alert = UIAlertController(title: "Uyarı", message: "Lütfen id giriniz!", preferredStyle: .alert)
+        if idText.text!.count < 11 {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen geçerli bir TCKN giriniz! TCKN 11 haneli olmalıdır.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return
         }
+        
         else {
             
-             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-             let sendVC = storyboard.instantiateViewController(withIdentifier: "PayVC") as! PayVC
+            let payPage = storyboard?.instantiateViewController(withIdentifier: "PayVC") as! PayVC
+            navigationController?.pushViewController(payPage, animated: true)
     
              Passenger.shared.name = nameText.text!
              Passenger.shared.surname = surnameText.text!
              Passenger.shared.id = idText.text!
           
-             sendVC.modalPresentationStyle = .fullScreen
-             sendVC.modalTransitionStyle = .coverVertical
-             self.present(sendVC, animated: false, completion: nil)
+            
         }
-        
-        
     }
-    
-    
-
 }

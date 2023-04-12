@@ -85,9 +85,9 @@ class HomepageVC: UIViewController {
     }
     
     @objc func showTime(timePicker:UIDatePicker){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm"
-        let selectedTime = dateFormatter.string(from: timePicker.date)
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "hh:mm"
+        let selectedTime = timeFormatter.string(from: timePicker.date)
         timeTextField.text = selectedTime
         Ticket.shared.time = selectedTime
     }
@@ -117,13 +117,13 @@ class HomepageVC: UIViewController {
     @IBAction func showTicketList(_ sender: Any) {
        //Date and Time Alert
         if dateTextField.text == ""{
-               let alert = UIAlertController(title: "Uyarı", message: "Lütden tarih seçin.", preferredStyle: .alert)
+               let alert = UIAlertController(title: "Uyarı", message: "Lütfen tarih seçin!", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
                present(alert, animated: true, completion: nil)
                return
            }
         if timeTextField.text == ""{
-               let alert = UIAlertController(title: "Uyarı", message: "Lütden tarih seçin.", preferredStyle: .alert)
+               let alert = UIAlertController(title: "Uyarı", message: "Lütfen saat seçin!", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
                present(alert, animated: true, completion: nil)
                return
@@ -134,9 +134,9 @@ class HomepageVC: UIViewController {
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         } else {
-            let seatPage = storyboard?.instantiateViewController(withIdentifier: "BusVC") as! BusVC
-            seatPage.ticket = ticket
-            navigationController?.pushViewController(seatPage, animated: true)
+            let busPage = storyboard?.instantiateViewController(withIdentifier: "BusVC") as! BusVC
+            busPage.ticket = ticket
+            navigationController?.pushViewController(busPage, animated: true)
             
             Ticket.shared.from = fromLabel.text
             Ticket.shared.to = toLabel.text

@@ -33,7 +33,7 @@ class OnboardingVC: UIViewController {
         
         slides = [
             OnboardingSlide(title: "Hızlı ve Güvenli Ödeme", description: "Kredi kartı ile Kolayca Ödeme Yapın ve Yolculuğunuzu Anında Onaylayın", image: UIImage(named: "pay")!),
-            OnboardingSlide(title: "Konforlu ve Güvenli Yolculuk", description: "İzmir ve Çeşme Arasındaki En İyi Seçim. Rahat ve GÜvenli Yolculuk Yapın", image: UIImage(named: "journey")!),
+            OnboardingSlide(title: "Konforlu ve Güvenli Yolculuk", description: "İzmir ve Çeşme Arasındaki En İyi Seçim. Rahat ve Güvenli Yolculuk Yapın", image: UIImage(named: "journey")!),
             OnboardingSlide(title: "Huzur Dolu Bir Tatil", description: "Mükemmel Tatilinizin Tadını Çıkartın ", image: UIImage(named: "enjoy")!)
         ]
         

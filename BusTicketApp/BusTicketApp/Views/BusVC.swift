@@ -20,7 +20,7 @@ class BusVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 85, height: 85)
         collectionView.register(BusCVC.self, forCellWithReuseIdentifier: BusCVC.identifier)
         collectionView.backgroundColor = .systemBackground
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class BusVC: UIViewController {
     @IBAction func continueBtnClicked(_ sender: UIButton) {
         //Allert
         if collectionView.indexPathsForSelectedItems?.count ?? 0 < ticket.seatNumber {
-            let alert = UIAlertController(title: "Dikkat!", message: "Lütfen Koltuk Sayısı Kadar Seçim Yapınızz!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Dikkat!", message: "Lütfen Koltuk Sayısı Kadar Seçim Yapınız!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
         }
@@ -47,8 +47,8 @@ class BusVC: UIViewController {
         print("\(selectedSeats)")
         Ticket.shared.selectedSeat = seatNumberString
 
-        let seatPage = storyboard?.instantiateViewController(withIdentifier: "PassengerDetailVC") as! PassengerDetailVC
-        navigationController?.pushViewController(seatPage, animated: false)
+        let passengerPage = storyboard?.instantiateViewController(withIdentifier: "PassengerDetailVC") as! PassengerDetailVC
+        navigationController?.pushViewController(passengerPage, animated: false)
         
     }
     
@@ -115,7 +115,7 @@ extension BusVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         //Allert
         if collectionView.indexPathsForSelectedItems?.count ?? 0 == ticket.seatNumber {
-            let alert = UIAlertController(title: "Dikkat!", message: "Lütfen Koltuk Sayısı Kadar Seçim Yapınızz!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Dikkat!", message: "Lütfen Koltuk Sayısı Kadar Seçim Yapınız!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return collectionView.indexPathsForSelectedItems?.count ?? 0 <= (ticket.seatNumber - 1)

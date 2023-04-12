@@ -10,11 +10,11 @@ import Lottie
 class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var creditCardimageView: LottieAnimationView!
-    @IBOutlet weak var nameLabel: UITextField!
-    @IBOutlet weak var cardNoLabel: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var cardNoTextField: UITextField!
     @IBOutlet weak var monthTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
-    @IBOutlet weak var cvcLabel: UITextField!
+    @IBOutlet weak var cvcTextField: UITextField!
     
     let months = Array(1...12)
     let years = Array(23...50)
@@ -24,7 +24,7 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let imageView = LottieAnimationView(name: "creditCard")
         imageView.frame = CGRect(x: 68, y: 75, width: 260, height: 240)
         imageView.contentMode = .scaleAspectFit
@@ -32,7 +32,8 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         imageView.play()
         imageView.loopMode = .loop
         
-        cardNoLabel.delegate = self
+        cardNoTextField.delegate = self
+        cvcTextField.delegate = self
         
         monthPickerView.delegate = self
         monthPickerView.dataSource = self
@@ -86,7 +87,7 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
        }
 //Alert for card no
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == cardNoLabel {
+        if textField == cardNoTextField {
             let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
             if newText.count > 16 {
                 let alert = UIAlertController(title: "Uyarı", message: "Kart numarası 16 haneden fazla olamaz.", preferredStyle: .alert)
@@ -95,20 +96,29 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
                 return false
             }
         }
+        else if textField == cvcTextField {
+                let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+                if newText.count > 3 {
+                    let alert = UIAlertController(title: "Uyarı", message: "CVC kodu 3 haneden fazla olamaz.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                    return false
+                }
+            }
             return true
         }
     
     @IBAction func buttonPressed(_ sender: Any) {
         //Name Alert
-        if nameLabel.text == "" {
-            let alert = UIAlertController(title: "Uyarı", message: "Lütfen adınızı giriniz!", preferredStyle: .alert)
+        if nameTextField.text == "" {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen adınızı girin!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return
         }
         //Card No Alert
-        guard let cardNumber = cardNoLabel.text, cardNumber.count == 16 else {
-            let alert = UIAlertController(title: "Uyarı", message: "Kart numarası 16 haneli olmalıdır", preferredStyle: .alert)
+        guard let cardNumber = cardNoTextField.text, cardNumber.count == 16 else {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen geçerli bir kart numarası giriniz! Kart numarası 16 haneli olmalıdır.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return
@@ -127,8 +137,8 @@ class PayVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIT
             return
         }
         // CVC Alert
-        if cvcLabel.text == "" {
-            let alert = UIAlertController(title: "Uyarı", message: "Lütfen CVC kodunu girin!", preferredStyle: .alert)
+        guard let cvc = cvcTextField.text, cvc.count == 3 else {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen geçerli bir CVC kodu giriniz! CVC 3 haneli olmalıdır", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return
