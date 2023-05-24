@@ -17,7 +17,5 @@
 | Home Screen                  | Select Seat                |  Passenger Detail          | 
 | ---------------------------- | -------------------------- | -------------------------- | 
 | <img src="https://github.com/GulfemmAlbayrak/BusTicketApp/assets/101430350/3d03630b-fd6b-4e86-8fa8-e002604a6aa9" width="300px"> | <img src="https://github.com/GulfemmAlbayrak/BusTicketApp/assets/101430350/a9fe0923-17dd-4c7f-8085-2caf71ba857a" width="300px"> | <img src="https://github.com/GulfemmAlbayrak/BusTicketApp/assets/101430350/4127dcdd-b27e-4fc3-880f-8910a3291a44" width="300px"> |
-| ---------------------------- | -------------------------- | -------------------------- | 
 | Buying Ticket                |  Successful Transaction    |  Print Ticket              |
-| ---------------------------- | -------------------------- | -------------------------- |
 | <img src="https://github.com/GulfemmAlbayrak/BusTicketApp/assets/101430350/69ff457c-e2e4-492b-915f-68d770437c4b" width="300px"> | <img src="https://github.com/GulfemmAlbayrak/BusTicketApp/assets/101430350/07484e3a-a447-478a-a894-d0cb042ae30d" width="300px"> | <img src="https://github.com/GulfemmAlbayrak/BusTicketApp/assets/101430350/ea9146a3-8a3a-4ade-bf0f-11149e7b9855" width="300px"> |
